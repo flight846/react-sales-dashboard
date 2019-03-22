@@ -12,6 +12,8 @@ import './App.css';
 import 'bootstrap-4-grid/css/grid.min.css';
 
 import { DonutChartContainer } from './components/DonutChartContainer';
+import { BarChartContainer } from './components/BarChartContainer';
+import { GridContainer } from './components/GridContainer';
 
 class App extends Component {
     appContainer = React.createRef();
@@ -66,12 +68,12 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                        <h4>Bar Chart Container</h4>
+                                        <BarChartContainer />
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                        <h4>Grid Container</h4>
+                                        <GridContainer />
                                     </div>
                                 </div>
                             </div>
