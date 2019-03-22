@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Dialog, DialogActionsBar } from '@progress/kendo-react-dialogs';
-import { Input } from '@progress/kendo-react-inputs'; 
-import { Button } from '@progress/kendo-react-buttons';
 import { Ripple } from '@progress/kendo-react-ripple';
 import { savePDF } from '@progress/kendo-react-pdf';
 
@@ -15,6 +12,8 @@ import { DonutChartContainer } from './components/DonutChartContainer';
 import { BarChartContainer } from './components/BarChartContainer';
 import { GridContainer } from './components/GridContainer';
 import { PanelBarContainer } from './components/PanelBarContainer';
+import Header from './components/Header';
+import DialogContainer from './components/Dialog';
 
 class App extends Component {
     appContainer = React.createRef();
@@ -38,15 +37,7 @@ class App extends Component {
             <Ripple>
                 <div className="bootstrap-wrapper">
                     <div className="app-container container" ref={(el) => this.appContainer = el}>
-                        <div className="row">
-                            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                <h1>Sales | Q4 2018</h1>
-                            </div>
-                            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 buttons-right">
-                                <Button primary onClick={this.handleShare}>Share</Button>
-                                <Button onClick={this.handlePDFExport}>Export to PDF</Button>
-                            </div>
-                        </div>
+                        <Header share={this.handleShare} pdfExport={this.handlePDFExport}/>
                         <div className="row">
                             <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                                 <PanelBarContainer />
@@ -80,14 +71,7 @@ class App extends Component {
                             </div>
                         </div>
                         {this.state.showDialog &&
-                            <Dialog title={"Share this report"} onClose={this.handleShare}>
-                                <p>Please enter the email address/es of the recipient/s.</p>
-                                <Input placeholder="example@progress.com" />
-                                <DialogActionsBar>
-                                    <Button primary={true} onClick={this.handleShare}>Share</Button>
-                                    <Button onClick={this.handleShare}>Cancel</Button>
-                                </DialogActionsBar>
-                            </Dialog>
+                            <DialogContainer share={ this.handleShare }/>
                         }
                     </div>
                 </div>

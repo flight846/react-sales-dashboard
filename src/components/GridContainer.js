@@ -18,8 +18,8 @@ export const GridContainer = () => (
         <Grid style={{ height: '300px' }} data={processData(gridData)}>
             <Column field="ProductID" title="ID" width="40px" />
             <Column field="ProductName" title="Name" width="160px" />
-            <Column field="Category.CategoryName" title="Category Name" width="80px" />
-            <Column field="UnitPrice" title="Price" width="80px" />
+            <Column field="Category.CategoryName" title="Category Name" width="160px" />
+            <Column field="UnitPrice" title="Price" width="100px" />
             <Column field="UnitsInStock" title="Stock" width="90px" />
             <Column field="PriceHistory" width="130px" cell={SparkLineChartCell} title="Price history" />
             <Column field="Discontinued" width="130px"
